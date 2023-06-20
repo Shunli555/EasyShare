@@ -13,7 +13,7 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(EasyShare src/main.cpp src/ui/MainAppPage.cpp src/ui/MainAppPage.h src/data/Message.cpp src/data/Message.h)
+add_executable(EasyShare src/main.cpp src/ui/MainAppPage.cpp src/ui/MainAppPage.h src/data/Message.cpp src/data/Message.h src/sockio/Server.cpp src/sockio/Server.h src/sockio/BroadCaster.cpp src/sockio/BroadCaster.h src/sockio/PartnerScanner.cpp src/sockio/PartnerScanner.h)
 target_link_libraries(EasyShare
         Qt::Core
         Qt::Gui
