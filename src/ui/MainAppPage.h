@@ -10,6 +10,7 @@
 #define EASYSHARE_MAINAPPWINDOW_H
 
 #endif //EASYSHARE_MAINAPPWINDOW_H
+#include "../sockio/PartnerScanner.h"
 
 class MainAppPage : public QMainWindow {
 Q_OBJECT
@@ -18,6 +19,7 @@ public:
     MainAppPage(QWidget *parent = nullptr);
 
     ~MainAppPage();
+    PartnerScanner scanner;
 
     //设备对应的列表
     QListView *deviceList;

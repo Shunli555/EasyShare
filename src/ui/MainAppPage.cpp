@@ -2,6 +2,7 @@
 #include "MainAppPage.h"
 #include "QtCore"
 
+
 MainAppPage::MainAppPage(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("快传");
     auto *rootWidget = new QWidget;
@@ -53,6 +54,7 @@ MainAppPage::MainAppPage(QWidget *parent) : QMainWindow(parent) {
     this->rootLayout->addWidget(infoPaneWidget);
 
     initSlots();
+    qDebug("scanner started");
 }
 
 MainAppPage::~MainAppPage() {
