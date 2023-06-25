@@ -24,3 +24,7 @@ void BroadCaster::sendMsg(QString &data) {
     QByteArray datagram = data.toUtf8().data();
     serverSocket->writeDatagram(datagram, datagram.length(), *hostAddress, MULTICAST_PORT);
 }
+
+void BroadCaster::onReadReady() {
+
+}

@@ -10,6 +10,7 @@
 #define EASYSHARE_MAINAPPWINDOW_H
 
 #endif //EASYSHARE_MAINAPPWINDOW_H
+
 #include "../sockio/PartnerScanner.h"
 
 class MainAppPage : public QMainWindow {
@@ -19,6 +20,7 @@ public:
     MainAppPage(QWidget *parent = nullptr);
 
     ~MainAppPage();
+
     PartnerScanner scanner;
 
     //设备对应的列表
@@ -29,9 +31,12 @@ public:
     QPushButton *sendButton;
     QHBoxLayout *rootLayout;
     QVBoxLayout *infoPaneLayout;
+    QPushButton *selectFileButton;
 private slots:
 
     void sendMsg();
+
+    void selectFile();
 
 private:
     void initSlots();

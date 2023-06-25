@@ -10,6 +10,8 @@
  * 用来搜索同一局域网内其它用户
  */
 class PartnerScanner : public QWidget {
+Q_OBJECT
+
 public:
     QUdpSocket scanner;
     QHostAddress address;

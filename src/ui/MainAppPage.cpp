@@ -1,7 +1,7 @@
 
 #include "MainAppPage.h"
 #include "QtCore"
-
+#include "QFileDialog"
 
 MainAppPage::MainAppPage(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("快传");
@@ -32,14 +32,20 @@ MainAppPage::MainAppPage(QWidget *parent) : QMainWindow(parent) {
     chatAreaPolicy.setVerticalStretch(1);
     chatArea->setSizePolicy(chatAreaPolicy);
 
-    this->sendButton = new QPushButton("Send");
+    this->sendButton = new QPushButton("发送");
 
     this->sendButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
+    selectFileButton = new QPushButton("选择文件");
+    selectFileButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
     auto *sendParent = new QHBoxLayout;
     sendParent->addStretch();
+    sendParent->addWidget(selectFileButton);
+    sendParent->addSpacing(10);
     sendParent->addWidget(sendButton);
     sendParent->setContentsMargins(0, 10, 0, 10);
+
 
     this->infoPaneLayout->addWidget(this->chatList);
     this->infoPaneLayout->addSpacing(20);
@@ -67,4 +73,15 @@ void MainAppPage::sendMsg() {
 
 void MainAppPage::initSlots() {
     connect(sendButton, SIGNAL(clicked(bool)), this, SLOT(sendMsg()));
+    connect(selectFileButton, &QPushButton::clicked, this, &MainAppPage::selectFile);
+}
+
+void MainAppPage::selectFile() {
+    const QString &fileName = QFileDialog::getOpenFileName(this->centralWidget(), "选择一个文件", Q_NULLPTR,
+                                                           "所有文件(*.*)");
+    if (fileName.isEmpty()) {
+        qDebug("File is invalid");
+        return;
+    }
+    qDebug() << "File is %s:" << fileName;
 }
