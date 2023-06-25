@@ -2,6 +2,7 @@
 #include "MainAppPage.h"
 #include "QtCore"
 #include "QFileDialog"
+#include "../utils/StorageUtil.h"
 
 MainAppPage::MainAppPage(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("快传");
