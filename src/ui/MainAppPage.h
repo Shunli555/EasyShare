@@ -17,7 +17,7 @@ class MainAppPage : public QMainWindow {
 Q_OBJECT
 
 public:
-    MainAppPage(QWidget *parent = nullptr);
+    explicit MainAppPage(QWidget *parent = nullptr);
 
     ~MainAppPage();
 
